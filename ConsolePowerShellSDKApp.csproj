@@ -12,12 +12,14 @@
         <ItemGroup>
             <FilesToBundle Remove="@(_FilesToBundle)"
                 Condition="
-                $([System.String]::Copy(%(_FilesToBundle.RelativePath)).Contains(&apos;ref&apos;)) 
+                $([System.Text.RegularExpressions.Regex]::IsMatch(%(_FilesToBundle.RelativePath), &quot;ref\\&quot;))
                 OR
-                $([System.String]::Copy(%(_FilesToBundle.RelativePath)).Contains(&apos;runtimes&apos;))
+                $([System.Text.RegularExpressions.Regex]::IsMatch(%(_FilesToBundle.RelativePath), &quot;runtimes\\&quot;))
                 "
             />
         </ItemGroup>
+        <Message Importance="High" Text="xxx"/>
+        <Message Importance="High" Text="%(_FilesToBundle.RelativePath)"/>
     </Target>
     <ItemGroup>
         <PackageReference Include="Microsoft.PowerShell.SDK" Version="7.4.0-preview.1" />
