@@ -22,6 +22,6 @@
         <Message Importance="High" Text="%(_FilesToBundle.RelativePath)"/>
     </Target>
     <ItemGroup>
-        <PackageReference Include="Microsoft.PowerShell.SDK" Version="7.4.0-preview.1" />
+        <PackageReference Include="Microsoft.PowerShell.SDK" Version="7.4.0-*" />
     </ItemGroup>
 </Project>
